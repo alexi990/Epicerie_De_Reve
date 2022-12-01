@@ -15,8 +15,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        System.out.println("allo");
 
+        binding.btncommencer.setOnClickListener(view-> {
 
+        });
+
+        binding.btnquitter.setOnClickListener(view-> {
+            this.finish();
+        });
     }
 }

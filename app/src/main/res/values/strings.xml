@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Epicerie de reve</string>
+    <string name="bienvenu">Bienvenue chez (Nom de l\'épicerie) !</string>
+    <string name="commencer">Commencer mon épicerie</string>
+    <string name="quitter">Quitter</string>
+    <string name="menupropos">À propos</string>
+    <string name="menupanier">Accéder à mon panier</string>
 </resources>
