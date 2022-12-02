@@ -5,7 +5,4 @@
     <item
         android:id="@+id/menuPanier"
         android:title="@string/menupanier" />
-    <item
-        android:id="@+id/menuApropos"
-        android:title="@string/menupropos" />
 </menu>

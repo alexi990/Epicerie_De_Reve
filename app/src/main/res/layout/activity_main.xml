@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="274dp"
         android:layout_weight="0"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/logo" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,26 +42,44 @@
 
         <Button
             android:id="@+id/btncommencer"
-            android:layout_width="wrap_content"
+            android:layout_width="245dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="@string/commencer"
-            app:layout_constraintBottom_toTopOf="@+id/btnquitter"
+            app:layout_constraintBottom_toTopOf="@+id/btnapropos"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.566" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btnquitter"
             android:layout_width="245dp"
             android:layout_height="48dp"
+            android:layout_marginBottom="60dp"
             android:text="@string/quitter"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.671" />
+            app:layout_constraintEnd_toEndOf="@+id/btnplainte"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btnplainte" />
+
+        <Button
+            android:id="@+id/btnapropos"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/apropos"
+            app:layout_constraintBottom_toTopOf="@+id/btnplainte"
+            app:layout_constraintEnd_toEndOf="@+id/btncommencer"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btncommencer" />
+
+        <Button
+            android:id="@+id/btnplainte"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="@string/plainte"
+            app:layout_constraintBottom_toTopOf="@+id/btnquitter"
+            app:layout_constraintEnd_toEndOf="@+id/btnapropos"
+            app:layout_constraintStart_toStartOf="@+id/btnapropos" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

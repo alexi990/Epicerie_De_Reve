@@ -33,9 +33,6 @@ public class EpicerieActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
-            case R.id.menuApropos :
-                Intent intent1 = new Intent(this, ActivityPropos.class);
-                return true;
 
             case R.id.menuPanier :
                 Intent intent2 = new Intent(this, ActivityPanier.class);
