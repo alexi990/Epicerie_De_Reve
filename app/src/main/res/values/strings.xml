@@ -4,6 +4,10 @@
     <string name="commencer">Commencer mon épicerie</string>
     <string name="quitter">Quitter</string>
     <string name="menupanier">Accéder à mon panier</string>
+    <string name="fruitlegume">Fruit/Légume</string>
+    <string name="autre">Autre</string>
+    <string name="viande">Viande</string>
+    <string name="cochonnerie">Cochonnerie</string>
     <string name="apropos">À propos</string>
     <string name="plainte">Faire une plainte</string>
 </resources>

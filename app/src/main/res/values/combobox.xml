@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="listcategorie">
-        <item>a</item>
-        <item>b</item>
-        <item>c</item>
-        <item>d</item>
+        <item>@string/fruitlegume</item>
+        <item>@string/viande</item>
+        <item>@string/cochonnerie</item>
+        <item>@string/autre</item>
 
     </string-array>
 </resources>
