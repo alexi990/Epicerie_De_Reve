@@ -2,6 +2,7 @@ package com.example.epiceriedereve;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.epiceriedereve.databinding.ActivityMainBinding;
@@ -15,8 +16,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        System.out.println("allo");
 
+        binding.btncommencer.setOnClickListener(view-> {
+            Intent intent = new Intent(this, EpicerieActivity.class);
+        });
 
+        binding.btnquitter.setOnClickListener(view-> {
+            this.finish();
+        });
     }
 }
