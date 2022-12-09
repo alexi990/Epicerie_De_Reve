@@ -39,6 +39,16 @@ public class Aliment {
         this.image = img;
     }
 
+    public Aliment(Aliment aliment)
+    {
+        this.id = 0;
+        this.nom = aliment.nom;
+        this.categorie = aliment.categorie;
+        this.quantite = aliment.quantite;
+        this.prix = aliment.prix;
+        this.image = aliment.image;
+    }
+
     public String getPrix() {
         return prix;
     }
