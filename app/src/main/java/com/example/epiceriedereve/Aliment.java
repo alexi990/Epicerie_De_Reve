@@ -1,26 +1,41 @@
 package com.example.epiceriedereve;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Aliment {
 
-    private int prix;
-    private int quantité=0;
-    private String nom;
-    private String categorie;
+    @PrimaryKey(autoGenerate = true)
+    public int id;
 
-    Aliment(String nnom,String ccategorie,int pprix, int qquantité)
-    {
-        nom=nnom;
-        categorie=ccategorie;
-        prix=pprix;
-        quantité=qquantité;
+    @ColumnInfo(name = "nom")
+    public String nom;
+
+    @ColumnInfo(name = "quantite")
+    public int quantite;
+
+    @ColumnInfo(name = "categorie")
+    public String categorie;
+
+    @ColumnInfo(name = "prix")
+    public float prix;
+
+    public Aliment(String name, String catego, int qte, float price) {
+        this.id = 0;
+        this.nom = name;
+        this.categorie = catego;
+        this.quantite = qte;
+        this.prix = price;
     }
 
-    public int getPrix() {
+    public float getPrix() {
         return prix;
     }
 
     public int getQuantité() {
-        return quantité;
+        return quantite;
     }
 
     public String getNom() {
@@ -31,12 +46,12 @@ public class Aliment {
         return categorie;
     }
 
-    public void setPrix(int prix) {
+    public void setPrix(float prix) {
         this.prix = prix;
     }
 
-    public void setQuantité(int quantité) {
-        this.quantité = quantité;
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
     }
 
     public void setNom(String nom) {
@@ -47,3 +62,4 @@ public class Aliment {
         this.categorie = categorie;
     }
 }
+
