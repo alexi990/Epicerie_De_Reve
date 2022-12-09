@@ -19,14 +19,17 @@ public class MainActivity extends AppCompatActivity {
 
         binding.btncommencer.setOnClickListener(view-> {
             Intent intent = new Intent(this, EpicerieActivity.class);
+            startActivity(intent);
         });
 
         binding.btnapropos.setOnClickListener(view-> {
             Intent intent = new Intent(this, ActivityPropos.class);
+            startActivity(intent);
         });
 
         binding.btnplainte.setOnClickListener(view -> {
             Intent intent = new Intent(this, PlainteActivity.class);
+            startActivity(intent);
         });
 
         binding.btnquitter.setOnClickListener(view-> {
