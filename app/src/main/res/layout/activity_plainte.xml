@@ -4,13 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlainteActivity"/>
+    tools:context=".PlainteActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/fuckyou"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-63dp" />
+        android:id="@+id/imageView5"
+        android:layout_width="454dp"
+        android:layout_height="575dp"
+        android:layout_marginTop="78dp"
+        android:layout_marginBottom="78dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fuckyou" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
