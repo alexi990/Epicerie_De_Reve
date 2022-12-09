@@ -22,6 +22,11 @@ public class Aliment {
     @ColumnInfo(name = "prix")
     public String prix;
 
+    public  Aliment()
+    {
+
+    }
+
     @ColumnInfo(name = "image")
     public int image;
 
