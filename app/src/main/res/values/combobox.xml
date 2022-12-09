@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="listcategorie">
+        <item>@string/tout</item>
         <item>@string/fruitlegume</item>
         <item>@string/viande</item>
         <item>@string/cochonnerie</item>

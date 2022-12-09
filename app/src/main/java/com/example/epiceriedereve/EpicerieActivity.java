@@ -36,6 +36,7 @@ public class EpicerieActivity extends AppCompatActivity {
 
             case R.id.menuPanier :
                 Intent intent2 = new Intent(this, ActivityPanier.class);
+                startActivity(intent2);
                 return true;
         }
         return super.onOptionsItemSelected(item);
