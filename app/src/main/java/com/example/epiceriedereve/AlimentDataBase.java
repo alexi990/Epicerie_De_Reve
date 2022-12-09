@@ -4,13 +4,14 @@ import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 @Database(entities = {Aliment.class}, version=1)
-public abstract class AlimentDataBase {
+public abstract class AlimentDataBase extends RoomDatabase {
     public abstract AlimentDao alimentDao();
     private static AlimentDataBase instance;
 
-    public static AlimentDataBase getDataBase(final Context context) {
+    public static AlimentDataBase getDatabase(final Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     AlimentDataBase.class, "aliment-database")
