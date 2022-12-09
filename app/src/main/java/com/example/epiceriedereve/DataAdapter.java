@@ -3,6 +3,8 @@ package com.example.epiceriedereve;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -29,21 +31,27 @@ public class DataAdapter extends ListAdapter<Aliment, DataAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_epicerie, parent, false);
+                .inflate(R.layout.ligneepicerie, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.textView.setText(getItem(position).text);
+        holder.textViewNom.setText(getItem(position).nom);
+        holder.textViewPrix.setText(getItem(position).prix);
+        holder.imageViewAliment.setImageResource(getItem(position).image);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+        private final TextView textViewNom;
+        private final TextView textViewPrix;
+        private final ImageView imageViewAliment;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.f
+            textViewNom = itemView.findViewById(R.id.nomaliment);
+            textViewPrix = itemView.findViewById(R.id.prixaliment);
+            imageViewAliment = itemView.findViewById(R.id.imageAliment);
         }
     }
 }

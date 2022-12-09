@@ -20,17 +20,21 @@ public class Aliment {
     public String categorie;
 
     @ColumnInfo(name = "prix")
-    public float prix;
+    public String prix;
 
-    public Aliment(String name, String catego, int qte, float price) {
+    @ColumnInfo(name = "image")
+    public int image;
+
+    public Aliment(String name, String catego, int qte, String price, int img) {
         this.id = 0;
         this.nom = name;
         this.categorie = catego;
         this.quantite = qte;
         this.prix = price;
+        this.image = img;
     }
 
-    public float getPrix() {
+    public String getPrix() {
         return prix;
     }
 
@@ -46,7 +50,9 @@ public class Aliment {
         return categorie;
     }
 
-    public void setPrix(float prix) {
+    public int getImage() {return image;}
+
+    public void setPrix(String prix) {
         this.prix = prix;
     }
 
@@ -61,5 +67,7 @@ public class Aliment {
     public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
+
+    public void setImage(int image) {this.image = image;}
 }
 
