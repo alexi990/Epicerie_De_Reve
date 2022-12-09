@@ -4,6 +4,8 @@ package com.example.epiceriedereve;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -28,20 +30,29 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
 
     @NonNull
     @Override
-    public PanierAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.ligneepicerie, parent, false);
-        return new PanierAdapter.ViewHolder(view);
+                .inflate(R.layout.lignepanier, parent, false);
+        return new ViewHolder(view);
     }
     @Override
     public void onBindViewHolder(@NonNull PanierAdapter.ViewHolder holder, int position) {
-        holder.textViewNom.setText(getItem(position).nom);
-        holder.textViewPrix.setText(getItem(position).prix);
-        holder.photo.setImageResource(getItem(position).image);
+        holder.textViewqte.setText(getItem(position).quantite);
+        holder.textViewprix.setText(getItem(position).prix);
+        holder.imgAliment.setImageResource(getItem(position).image);
     }
 
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        private final TextView textViewprix;
+        private final TextView textViewqte;
+        private final ImageView imgAliment;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            textViewprix = itemView.findViewById(R.id.prixAliment);
+            textViewqte = itemView.findViewById(R.id.quantite);
+            imgAliment = itemView.findViewById(R.id.photo);
+        }
 
 
     }

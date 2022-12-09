@@ -15,5 +15,7 @@ public class ActivityPanier extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPanierBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
     }
 }
