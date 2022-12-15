@@ -32,6 +32,11 @@ public class EpicerieActivity extends AppCompatActivity {
         binding.recyclerView.setAdapter(adapter);
 
         model.getData().observe(this, adapter::submitList);
+        model.getData().observe(this, aliments -> {
+            if(aliments.isEmpty()) {
+                model.repository.ajoutAliment();
+            }
+        });
     }
 
     @Override
