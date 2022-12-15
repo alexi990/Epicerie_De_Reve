@@ -37,9 +37,9 @@ public class DataAdapter extends ListAdapter<Aliment, DataAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.textViewNom.setText(getItem(position).nom);
-        holder.textViewPrix.setText(getItem(position).prix);
-        holder.imageViewAliment.setImageResource(getItem(position).image);
+        holder.textViewNom.setText(getItem(position).getNom());
+        holder.textViewPrix.setText(getItem(position).getPrix());
+        holder.imageViewAliment.setImageResource(getItem(position).getImage());
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
