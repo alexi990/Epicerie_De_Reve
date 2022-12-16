@@ -60,9 +60,9 @@ public class DataAdapter extends ListAdapter<Aliment, DataAdapter.ViewHolder> {
             imageViewAliment = itemView.findViewById(R.id.imageAliment);
 
             itemView.setOnClickListener(view -> {
-                Intent intent = new Intent();
-                intent.putExtra("id_aliment", this.getItemId());
-                epicerie.setResult(Activity.RESULT_OK, intent);
+                Intent intent = new Intent(epicerie, ActivityPanier.class);
+                intent.putExtra("aliment", getCurrentList().get(getAdapterPosition()));
+                epicerie.startActivity(intent);
             });
         }
     }

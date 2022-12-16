@@ -16,6 +16,6 @@ public class ActivityPanier extends AppCompatActivity {
         binding = ActivityPanierBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        Aliment alim = (Aliment) getIntent().getSerializableExtra("aliment");
     }
 }

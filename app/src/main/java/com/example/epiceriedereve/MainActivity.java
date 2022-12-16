@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.btncommencer.setOnClickListener(view-> {
             Intent intent = new Intent(this, EpicerieActivity.class);
-            intent.putExtra("id_aliment", 0);
+            //intent.putExtra("id_aliment", 0);
             startActivity(intent);
         });
 
