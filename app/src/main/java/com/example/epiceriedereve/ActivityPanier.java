@@ -1,6 +1,8 @@
 package com.example.epiceriedereve;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 
@@ -9,6 +11,7 @@ import com.example.epiceriedereve.databinding.ActivityPanierBinding;
 public class ActivityPanier extends AppCompatActivity {
 
     ActivityPanierBinding binding;
+    PanierViewModel paniermodel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +19,17 @@ public class ActivityPanier extends AppCompatActivity {
         binding = ActivityPanierBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        paniermodel = new ViewModelProvider(this).get(PanierViewModel.class);
+
         Aliment alim = (Aliment) getIntent().getSerializableExtra("aliment");
+        if (alim != null)
+        {
+            paniermodel.ajouterItemPanier(alim);
+        }
+
+        PanierAdapter panieradapter = new PanierAdapter();
+        binding.panierRecycler.setLayoutManager(new LinearLayoutManager(this));
+        binding.panierRecycler.setAdapter(panieradapter);
+        panieradapter.submitList(paniermodel.getListPanier());
     }
 }

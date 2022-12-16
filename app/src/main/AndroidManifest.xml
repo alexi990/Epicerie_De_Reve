@@ -22,7 +22,8 @@
         </activity>
         <activity
             android:name=".ActivityPanier"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".EpicerieActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

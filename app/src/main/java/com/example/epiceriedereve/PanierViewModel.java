@@ -6,14 +6,19 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PanierViewModel extends AndroidViewModel {
-
-    ArrayList<Aliment> aliment = new ArrayList<>();
 
     public PanierViewModel(@NonNull Application application) {
         super(application);
     }
 
+    public List<Aliment> getListPanier(){
+        return Panier.panier;
+    }
 
+    public void ajouterItemPanier(Aliment aliment){
+        Panier.panier.add(aliment);
+    }
 }

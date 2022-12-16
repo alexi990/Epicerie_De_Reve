@@ -36,7 +36,7 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
     }
     @Override
     public void onBindViewHolder(@NonNull PanierAdapter.ViewHolder holder, int position) {
-        holder.textViewqte.setText(getItem(position).quantite);
+        holder.textViewqte.setText(String.valueOf(getItem(position).quantite));
         holder.textViewprix.setText(getItem(position).prix);
         holder.imgAliment.setImageResource(getItem(position).image);
     }
