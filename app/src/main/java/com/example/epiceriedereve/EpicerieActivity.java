@@ -28,7 +28,7 @@ public class EpicerieActivity extends AppCompatActivity {
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        DataAdapter adapter = new DataAdapter();
+        DataAdapter adapter = new DataAdapter(this);
         binding.recyclerView.setAdapter(adapter);
 
         model.getData().observe(this, adapter::submitList);

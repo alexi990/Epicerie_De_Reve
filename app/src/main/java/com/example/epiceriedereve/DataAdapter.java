@@ -1,5 +1,7 @@
 package com.example.epiceriedereve;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +14,12 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class DataAdapter extends ListAdapter<Aliment, DataAdapter.ViewHolder> {
+    private EpicerieActivity epicerie;
 
-    public DataAdapter() {super(DIFF_CALLBACK);}
+    public DataAdapter(EpicerieActivity epicerie) {
+        super(DIFF_CALLBACK);
+        this.epicerie = epicerie;
+    }
 
     private static final DiffUtil.ItemCallback<Aliment> DIFF_CALLBACK = new DiffUtil.ItemCallback<Aliment>() {
         @Override
@@ -42,7 +48,7 @@ public class DataAdapter extends ListAdapter<Aliment, DataAdapter.ViewHolder> {
         holder.imageViewAliment.setImageResource(getItem(position).getImage());
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textViewNom;
         private final TextView textViewPrix;
         private final ImageView imageViewAliment;
@@ -52,6 +58,12 @@ public class DataAdapter extends ListAdapter<Aliment, DataAdapter.ViewHolder> {
             textViewNom = itemView.findViewById(R.id.nomaliment);
             textViewPrix = itemView.findViewById(R.id.prixaliment);
             imageViewAliment = itemView.findViewById(R.id.imageAliment);
+
+            itemView.setOnClickListener(view -> {
+                Intent intent = new Intent();
+                intent.putExtra("id_aliment", this.getItemId());
+                epicerie.setResult(Activity.RESULT_OK, intent);
+            });
         }
     }
 }
