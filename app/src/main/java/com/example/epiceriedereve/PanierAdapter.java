@@ -54,19 +54,6 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
 
 
 
-            fipasser.setOnClickListener(view -> {
-                Intent intent = new Intent(this,Activityfin.class);
-                intent.putExtra("Prix",prixtotal);
-                startActivity(intent);
-            });
-
-
-
-            findViewById(R.id.moins).setOnClickListener(view -> {
-          quantite--;
-          TextView myTextView = findViewById(R.id.quantite);
-          myTextView.setText(quantite);
-      });
 
 
 

@@ -19,7 +19,7 @@
             android:layout_marginTop="1dp"
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="1dp"
-            android:layout_weight="20">
+            android:layout_weight="10">
 
         </androidx.recyclerview.widget.RecyclerView>
 
@@ -27,15 +27,15 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="85dp"
-            android:layout_weight="20"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="TextView" />
 
         <Button
             android:id="@+id/passer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="20"
+            android:layout_height="92dp"
+            android:layout_weight="0.01"
             android:text="Passer la commande" />
 
     </LinearLayout>
