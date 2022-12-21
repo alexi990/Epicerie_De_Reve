@@ -18,7 +18,5 @@ public class PanierViewModel extends AndroidViewModel {
         return Panier.panier;
     }
 
-    public void ajouterItemPanier(Aliment aliment){
-        Panier.panier.add(aliment);
-    }
+    public void ajouterItemPanier(Aliment aliment){Panier.panier.add(aliment);}
 }

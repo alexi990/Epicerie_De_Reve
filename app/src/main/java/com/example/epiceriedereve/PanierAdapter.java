@@ -13,8 +13,13 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder> {
+    private float prixtotal;
 
     public PanierAdapter() {super(DIFF_CALLBACK);}
+
+    public String getTotal() {
+        return String.valueOf(prixtotal);
+    }
 
     private static final DiffUtil.ItemCallback<Aliment> DIFF_CALLBACK = new DiffUtil.ItemCallback<Aliment>() {
         @Override
@@ -35,6 +40,7 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
                 .inflate(R.layout.lignepanier, parent, false);
         return new ViewHolder(view);
     }
+
     @Override
     public void onBindViewHolder(@NonNull PanierAdapter.ViewHolder holder, int position) {
         holder.textViewqte.setText(String.valueOf(getItem(position).quantite));
@@ -68,7 +74,9 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
                     quantite--;
                     a.setQuantite(quantite);
                     textViewqte.setText(String.valueOf(quantite));
+                    prixtotal -= Float.parseFloat(a.getPrix());
                 }
+
                 prix = Float.parseFloat(a.getPrix());
                 prix *= quantite;
                 textViewprix.setText(String.valueOf(prix));
@@ -81,6 +89,7 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
                 a.setQuantite(quantite);
                 textViewqte.setText(String.valueOf(quantite));
                 prix = Float.parseFloat(a.getPrix());
+                prixtotal += prix;
                 prix *= quantite;
                 textViewprix.setText(String.valueOf(prix));
             });

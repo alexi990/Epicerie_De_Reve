@@ -11,9 +11,9 @@ import android.widget.TextView;
 import com.example.epiceriedereve.databinding.ActivityPanierBinding;
 
 public class ActivityPanier extends AppCompatActivity {
-    int quantite=1;
-    float prix;
-    float prixtotal;
+    //int quantite=1;
+    //float prix;
+   // float prixtotal;
 
     ActivityPanierBinding binding;
     PanierViewModel paniermodel;
@@ -32,18 +32,16 @@ public class ActivityPanier extends AppCompatActivity {
             paniermodel.ajouterItemPanier(alim);
         }
 
+        PanierAdapter panieradapter = new PanierAdapter();
+
         binding.passer.setOnClickListener(view -> {
             Intent intent = new Intent(this, Activityfin.class);
-            //startActvity(intent);
+            //intent.putExtra("total", panieradapter.getTotal());
+            startActivity(intent);
         });
 
-        PanierAdapter panieradapter = new PanierAdapter();
         binding.panierRecycler.setLayoutManager(new LinearLayoutManager(this));
         binding.panierRecycler.setAdapter(panieradapter);
         panieradapter.submitList(paniermodel.getListPanier());
-
-
     }
-
-
 }
