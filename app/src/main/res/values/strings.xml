@@ -12,4 +12,6 @@
     <string name="plainte">Faire une plainte</string>
     <string name="vosepiciers">Vos Vaillants Épiciers</string>
     <string name="tout">Tout</string>
+    <string name="merci">Merci davoir magasiner chez nous!</string>
+    <string name="votre">Votre total est :</string>
 </resources>

@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.epiceriedereve.databinding.ActivityPanierBinding;
 
 public class ActivityPanier extends AppCompatActivity {
+    int quantite=1;
+    float prix;
+    float prixtotal;
 
     ActivityPanierBinding binding;
     PanierViewModel paniermodel;
@@ -31,5 +36,9 @@ public class ActivityPanier extends AppCompatActivity {
         binding.panierRecycler.setLayoutManager(new LinearLayoutManager(this));
         binding.panierRecycler.setAdapter(panieradapter);
         panieradapter.submitList(paniermodel.getListPanier());
+
+
     }
+
+
 }
