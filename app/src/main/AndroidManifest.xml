@@ -13,6 +13,13 @@
         android:theme="@style/Theme.EpicerieDeReve"
         tools:targetApi="31">
         <activity
+            android:name=".FinActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".PlainteActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity">
@@ -32,7 +39,6 @@
             android:name=".ActivityPropos"
             android:exported="false"
             android:parentActivityName=".MainActivity">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
