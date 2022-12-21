@@ -32,7 +32,7 @@ public class ActivityPanier extends AppCompatActivity {
             paniermodel.ajouterItemPanier(alim);
         }
 
-        PanierAdapter panieradapter = new PanierAdapter();
+        PanierAdapter panieradapter = new PanierAdapter(this);
         binding.panierRecycler.setLayoutManager(new LinearLayoutManager(this));
         binding.panierRecycler.setAdapter(panieradapter);
         panieradapter.submitList(paniermodel.getListPanier());
