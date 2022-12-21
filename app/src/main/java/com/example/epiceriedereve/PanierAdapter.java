@@ -1,6 +1,5 @@
 package com.example.epiceriedereve;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +13,8 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder> {
-    private ActivityPanier actpanier;
 
-    public PanierAdapter(ActivityPanier actpanier) {
-        super(DIFF_CALLBACK);
-        this.actpanier = actpanier;
-        ;}
+    public PanierAdapter() {super(DIFF_CALLBACK);}
 
     private static final DiffUtil.ItemCallback<Aliment> DIFF_CALLBACK = new DiffUtil.ItemCallback<Aliment>() {
         @Override
@@ -43,7 +38,7 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull PanierAdapter.ViewHolder holder, int position) {
         holder.textViewqte.setText(String.valueOf(getItem(position).quantite));
-        holder.textViewprix.setText(getItem(position).prix);
+        holder.textViewprix.setText(String.valueOf(Float.parseFloat(getItem(position).prix)*(getItem(position).quantite)));
         holder.imgAliment.setImageResource(getItem(position).image);
     }
 
@@ -51,34 +46,32 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
         private final TextView textViewprix;
         private final TextView textViewqte;
         private final ImageView imgAliment;
-        private final Button btnpasser;
-        private final Button btnmoins;
-        private final Button btnplus;
+        private Button btnmoins;
+        private Button btnplus;
         int quantite = 1;
         float prix;
-        float prixtotal;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewprix = itemView.findViewById(R.id.prixAliment);
             textViewqte = itemView.findViewById(R.id.quantite);
             imgAliment = itemView.findViewById(R.id.photo);
-            btnpasser = itemView.findViewById(R.id.passer);
             btnmoins = itemView.findViewById(R.id.moins);
             btnplus = itemView.findViewById(R.id.plus);
-
-            btnpasser.setOnClickListener(view -> {
-                Intent intent = new Intent(actpanier, Activityfin.class);
-                intent.putExtra("Prix", prixtotal);
-                actpanier.startActivity(intent);
-            });
 
             btnmoins.setOnClickListener(view -> {
                 Aliment a = getCurrentList().get(getAdapterPosition());
                 quantite = a.getQuantité();
-                quantite--;
-                a.setQuantite(quantite);
-                textViewqte.setText(String.valueOf(quantite));
+
+                if (quantite >= 1)
+                {
+                    quantite--;
+                    a.setQuantite(quantite);
+                    textViewqte.setText(String.valueOf(quantite));
+                }
+                prix = Float.parseFloat(a.getPrix());
+                prix *= quantite;
+                textViewprix.setText(String.valueOf(prix));
             });
 
             btnplus.setOnClickListener(view -> {
@@ -87,6 +80,9 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
                 quantite++;
                 a.setQuantite(quantite);
                 textViewqte.setText(String.valueOf(quantite));
+                prix = Float.parseFloat(a.getPrix());
+                prix *= quantite;
+                textViewprix.setText(String.valueOf(prix));
             });
         }
     }

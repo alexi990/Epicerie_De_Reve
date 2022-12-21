@@ -32,7 +32,12 @@ public class ActivityPanier extends AppCompatActivity {
             paniermodel.ajouterItemPanier(alim);
         }
 
-        PanierAdapter panieradapter = new PanierAdapter(this);
+        binding.passer.setOnClickListener(view -> {
+            Intent intent = new Intent(this, Activityfin.class);
+            //startActvity(intent);
+        });
+
+        PanierAdapter panieradapter = new PanierAdapter();
         binding.panierRecycler.setLayoutManager(new LinearLayoutManager(this));
         binding.panierRecycler.setAdapter(panieradapter);
         panieradapter.submitList(paniermodel.getListPanier());
