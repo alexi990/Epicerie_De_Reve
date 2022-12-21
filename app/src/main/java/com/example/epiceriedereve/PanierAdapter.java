@@ -14,8 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder> {
     private float prixtotal;
+    ActivityPanier actpanier;
 
-    public PanierAdapter() {super(DIFF_CALLBACK);}
+    public PanierAdapter(ActivityPanier act) {
+        super(DIFF_CALLBACK);
+        this.actpanier = act;
+    }
 
     public String getTotal() {
         return String.valueOf(prixtotal);
@@ -46,14 +50,13 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
         holder.textViewqte.setText(String.valueOf(getItem(position).quantite));
         holder.textViewprix.setText(String.valueOf(Float.parseFloat(getItem(position).prix)*(getItem(position).quantite)));
         prixtotal += Float.parseFloat(getItem(position).prix)*(getItem(position).quantite);
-        holder.textViewtotal.setText(String.valueOf(prixtotal));
+        actpanier.afficheTotal(prixtotal);
         holder.imgAliment.setImageResource(getItem(position).image);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textViewprix;
         private final TextView textViewqte;
-        private final TextView textViewtotal;
         private final ImageView imgAliment;
         private Button btnmoins;
         private Button btnplus;
@@ -64,7 +67,6 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
             super(itemView);
             textViewprix = itemView.findViewById(R.id.prixAliment);
             textViewqte = itemView.findViewById(R.id.quantite);
-            textViewtotal = itemView.findViewById(R.id.totalpanier);
             imgAliment = itemView.findViewById(R.id.photo);
             btnmoins = itemView.findViewById(R.id.moins);
             btnplus = itemView.findViewById(R.id.plus);
@@ -79,7 +81,7 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
                     a1.setQuantite(quantite);
                     textViewqte.setText(String.valueOf(quantite));
                     prixtotal -= Float.parseFloat(a1.getPrix());
-                    textViewtotal.setText(String.valueOf(prixtotal));
+                    actpanier.afficheTotal(prixtotal);
                 }
 
                 prix = Float.parseFloat(a1.getPrix());
@@ -95,9 +97,9 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
                 textViewqte.setText(String.valueOf(quantite));
                 prix = Float.parseFloat(a2.getPrix());
                 prixtotal += prix;
-                textViewtotal.setText(String.valueOf(prixtotal));
                 prix *= quantite;
                 textViewprix.setText(String.valueOf(prix));
+                actpanier.afficheTotal(prixtotal);
             });
         }
     }

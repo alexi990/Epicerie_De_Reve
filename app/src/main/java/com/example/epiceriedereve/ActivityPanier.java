@@ -24,12 +24,11 @@ public class ActivityPanier extends AppCompatActivity {
         paniermodel = new ViewModelProvider(this).get(PanierViewModel.class);
 
         Aliment alim = (Aliment) getIntent().getSerializableExtra("aliment");
-        if (alim != null)
-        {
+        if (alim != null) {
             paniermodel.ajouterItemPanier(alim);
         }
 
-        PanierAdapter panieradapter = new PanierAdapter();
+        PanierAdapter panieradapter = new PanierAdapter(this);
 
         binding.passer.setOnClickListener(view -> {
             Intent intent = new Intent(this, FinActivity.class);
@@ -41,4 +40,9 @@ public class ActivityPanier extends AppCompatActivity {
         binding.panierRecycler.setAdapter(panieradapter);
         panieradapter.submitList(paniermodel.getListPanier());
     }
+
+    public void afficheTotal(Float prix) {
+        binding.totalpanier.setText(String.valueOf(prix));
+    }
+
 }
