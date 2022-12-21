@@ -42,7 +42,7 @@ public class ActivityPanier extends AppCompatActivity {
     }
 
     public void afficheTotal(Float prix) {
-        binding.totalpanier.setText(String.valueOf(prix));
+        binding.totalpanier.setText(String.valueOf(prix) + "0 $");
     }
 
 }

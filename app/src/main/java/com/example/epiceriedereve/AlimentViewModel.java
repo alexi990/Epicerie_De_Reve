@@ -18,6 +18,4 @@ public class AlimentViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Aliment>> getData() { return repository.getAll();}
-
-    public void addData(Aliment aliment) {repository.insert(new Aliment(aliment));}
 }

@@ -13,9 +13,6 @@ public interface AlimentDao {
     @Query("SELECT * from aliment")
     LiveData<List<Aliment>> getAll();
 
-    @Query("SELECT * from aliment where categorie =:categorie")
-    LiveData<List<Aliment>> getCategorie(String categorie);
-
     @Insert
     void insert(Aliment... aliments);
 }

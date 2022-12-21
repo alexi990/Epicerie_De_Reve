@@ -1,10 +1,7 @@
 package com.example.epiceriedereve;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -22,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
         binding.btncommencer.setOnClickListener(view-> {
             Intent intent = new Intent(this, EpicerieActivity.class);
-            //intent.putExtra("id_aliment", 0);
             startActivity(intent);
         });
 
