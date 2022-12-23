@@ -55,7 +55,7 @@ public class Aliment implements Serializable {
         return prix;
     }
 
-    public int getQuantité() {
+    public int getQuantite() {
         return quantite;
     }
 
