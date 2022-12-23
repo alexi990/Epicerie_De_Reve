@@ -12,20 +12,41 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * RecyclerView pour afficher les aliments disponibles dans l'épierie
+ * Ce sert des objets stockés dans la database
+ */
 public class DataAdapter extends ListAdapter<Aliment, DataAdapter.ViewHolder> {
     private EpicerieActivity epicerie;
 
+    /**
+     * Constructeur du DataAdapter
+     * Reçoit EpicerieActivity pour pouvoir utilisée une de ces méthodes plus bas.
+     * @param epicerie
+     */
     public DataAdapter(EpicerieActivity epicerie) {
         super(DIFF_CALLBACK);
         this.epicerie = epicerie;
     }
 
     private static final DiffUtil.ItemCallback<Aliment> DIFF_CALLBACK = new DiffUtil.ItemCallback<Aliment>() {
+        /**
+         * Si deux objets sont pareils
+         * @param oldItem
+         * @param newItem
+         * @return
+         */
         @Override
         public boolean areItemsTheSame(@NonNull Aliment oldItem, @NonNull Aliment newItem) {
             return oldItem.id == newItem.id;
         }
 
+        /**
+         * Si deux objets sont équivalents
+         * @param oldItem
+         * @param newItem
+         * @return
+         */
         @Override
         public boolean areContentsTheSame(@NonNull Aliment oldItem, @NonNull Aliment newItem) {
             return oldItem.nom.equals(newItem.nom);
@@ -40,6 +61,11 @@ public class DataAdapter extends ListAdapter<Aliment, DataAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
+    /**
+     * Set le nom, le prix et l'image reliée à un aliment selon la ligne du RecyclerView
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.textViewNom.setText(getItem(position).getNom());
@@ -52,6 +78,11 @@ public class DataAdapter extends ListAdapter<Aliment, DataAdapter.ViewHolder> {
         private final TextView textViewPrix;
         private final ImageView imageViewAliment;
 
+        /**
+         * Constructeur du ViewHolder
+         * Ajoute un aliment au panier et l'ouvre lorsque l'utilisateur clique dessus
+         * @param itemView
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewNom = itemView.findViewById(R.id.nomaliment);

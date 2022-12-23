@@ -13,11 +13,18 @@ import android.view.MenuItem;
 
 import com.example.epiceriedereve.databinding.ActivityEpicerieBinding;
 
+/**
+ * L'EpicerieActivity contient le recyclerview pour afficher les aliments disponibles à l'achat.
+ */
 public class EpicerieActivity extends AppCompatActivity {
 
     ActivityEpicerieBinding binding;
     AlimentViewModel model;
 
+    /**
+     * onCreate intitialise le ViewModel et l'adapter pour gérer les aliments de la liste d'épicerie
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +46,11 @@ public class EpicerieActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initialisation du menu de l'EpicerieActivity.
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -47,6 +59,11 @@ public class EpicerieActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Menu permettant à l'utilisateur d'accéder à son panier en tout temps.
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){

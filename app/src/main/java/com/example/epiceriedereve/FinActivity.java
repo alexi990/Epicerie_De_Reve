@@ -6,11 +6,19 @@ import android.os.Bundle;
 
 import com.example.epiceriedereve.databinding.ActivityFin2Binding;
 
+/**
+ * Dernière acitivty lorsque l'utilisatuer veut a terminé sa commande.
+ * Présente le prix total incluant les taxes de l'épicerie.
+ */
 public class FinActivity extends AppCompatActivity {
 
     ActivityFin2Binding binding;
     float prixtotal;
 
+    /**
+     * Calcul et affichage du prix avec les taxes à partir du prix total reçu par un intent crée dans PanierActivity.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

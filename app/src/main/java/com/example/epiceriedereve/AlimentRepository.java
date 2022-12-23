@@ -7,21 +7,36 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 import java.util.concurrent.Executors;
 
+/**
+ * Lien entre la base de données et l'épicerie.
+ */
 public class AlimentRepository {
 
     private AlimentDao alimentDao;
     private LiveData<List<Aliment>> data;
 
+    /**
+     * Permet l'accès et l'interaction avec la base de données.
+     * @param application
+     */
     public AlimentRepository(Application application) {
         AlimentDataBase database = AlimentDataBase.getDatabase(application);
         alimentDao = database.alimentDao();
         data = alimentDao.getAll();
     }
 
+    /**
+     * Pour obtenir tous les aliments présents dans la base de données.
+     * @return
+     */
     public LiveData<List<Aliment>> getAll() {
         return data;
     }
 
+    /**
+     * Permet d'ajouter un aliment dans le base de données.
+     * @param aliment
+     */
     public void insert(Aliment aliment) {
         Executors.newSingleThreadExecutor().execute(() -> {
             alimentDao.insert(aliment);
@@ -29,6 +44,9 @@ public class AlimentRepository {
 
     }
 
+    /**
+     * Ajout de tous les aliments dans le base de données.
+     */
     public void ajoutAliment() {
         Aliment aliments[] = new Aliment[]{
                 new Aliment("Aéro", "Cochonnerie", 1, "2.00", R.drawable.aero),

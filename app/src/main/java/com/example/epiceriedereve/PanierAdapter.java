@@ -12,25 +12,49 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+/**
+ * Adapter pour la PanierActivity.
+ */
 public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder> {
     private float prixtotal;
     ActivityPanier actpanier;
 
+    /**
+     * Constructeur du PanierAdapter
+     * Reçoit un AcitivtyPanier pour pouvoir utiliser une méthode de sa classe.
+     * @param act
+     */
     public PanierAdapter(ActivityPanier act) {
         super(DIFF_CALLBACK);
         this.actpanier = act;
     }
 
+    /**
+     *
+     * @return le prix total des achats
+     */
     public String getTotal() {
         return String.valueOf(prixtotal);
     }
 
     private static final DiffUtil.ItemCallback<Aliment> DIFF_CALLBACK = new DiffUtil.ItemCallback<Aliment>() {
+        /**
+         * Si deux items sont pareils
+         * @param oldItem
+         * @param newItem
+         * @return
+         */
         @Override
         public boolean areItemsTheSame(@NonNull Aliment oldItem, @NonNull Aliment newItem) {
             return oldItem.id == newItem.id;
         }
 
+        /**
+         * Si deux items sont équivalents
+         * @param oldItem
+         * @param newItem
+         * @return
+         */
         @Override
         public boolean areContentsTheSame(@NonNull Aliment oldItem, @NonNull Aliment newItem) {
             return oldItem.nom.equals(newItem.nom);
@@ -45,6 +69,11 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
         return new ViewHolder(view);
     }
 
+    /**
+     * Set le text, la quantité et le prix d'un aliment selon la ligne du recyclerview
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder(@NonNull PanierAdapter.ViewHolder holder, int position) {
         holder.textViewqte.setText(String.valueOf(getItem(position).quantite));
@@ -63,6 +92,11 @@ public class PanierAdapter extends ListAdapter<Aliment, PanierAdapter.ViewHolder
         int quantite = 1;
         float prix;
 
+        /**
+         * Constructeur du ViewHolder
+         * Gère les actions reliées au bouton pour ajuster la quantité d'un item
+         * @param itemView
+         */
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewprix = itemView.findViewById(R.id.prixAliment);

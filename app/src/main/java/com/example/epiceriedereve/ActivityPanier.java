@@ -10,11 +10,20 @@ import android.widget.TextView;
 
 import com.example.epiceriedereve.databinding.ActivityPanierBinding;
 
+/**
+ * ActivityPanier utilise un Recyclerview et un ViewModel afin de montrer le panier contenant les aliments que
+ * l'utilisateur souhaite acheté
+ */
 public class ActivityPanier extends AppCompatActivity {
 
     ActivityPanierBinding binding;
     PanierViewModel paniermodel;
 
+    /**
+     * Attribue le initialise le recyclerview avec la liste contenue dans le panierviewmodel.
+     * Crée une fonction lambda pour le bouton passer qui ouvre l'activité finale qui montre le prix total des achats.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +50,10 @@ public class ActivityPanier extends AppCompatActivity {
         panieradapter.submitList(paniermodel.getListPanier());
     }
 
+    /**
+     * Affichage du prix total dans le bas du panier
+     * @param prix
+     */
     public void afficheTotal(Float prix) {
         binding.totalpanier.setText(String.valueOf(prix) + "0 $");
     }

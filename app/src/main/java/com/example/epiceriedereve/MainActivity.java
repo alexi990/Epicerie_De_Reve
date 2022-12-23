@@ -7,10 +7,19 @@ import android.os.Bundle;
 
 import com.example.epiceriedereve.databinding.ActivityMainBinding;
 
+/**
+ * Main Acitivty de l'Épicerie.  Présente le logo de l'épiceire ainsi que 4 options pour l'utilisateur
+ *
+ * */
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
 
+    /**
+     * onCreate de MainActivity gère les 4 boutons du layout en leur attribuant un lamba pour ouvrir
+     * la bonne acitivty selon le bouton cliqué.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
